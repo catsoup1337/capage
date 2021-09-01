@@ -1,1 +1,0 @@
-web: gunicorn capage1337.wsgi --log-file -
