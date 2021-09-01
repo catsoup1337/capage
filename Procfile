@@ -1,1 +1,1 @@
-web: gunicorn hidden-journey-99799.wsgi --log-file -
+web: gunicorn capage.wsgi --log-file -
