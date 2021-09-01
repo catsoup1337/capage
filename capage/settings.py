@@ -1,4 +1,6 @@
 import os
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -7,7 +9,7 @@ SECRET_KEY = 'gq8t=4q6dndw=yuuum8cyz)-=tp!@qcty2l#d+@z!(lyzvm!wc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -110,6 +112,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     'capage/static/capage',
 ]
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
