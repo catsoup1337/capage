@@ -1,1 +1,1 @@
-web: gunicorn capage.wsgi --log-file -
+web: gunicorn posts.wsgi --log-file -

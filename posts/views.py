@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post
  
@@ -13,7 +13,12 @@ def order(request):
     return render(request, 'order.html')
 
 
-def page_not_found(request, exception):
+class BlogDetailView(DetailView): 
+    model = Post
+    template_name = 'post_detail.html'
+
+
+def page_not_found(request,exception):
     return render(
         request,
         "misc/404.html",

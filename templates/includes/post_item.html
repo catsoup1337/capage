@@ -1,16 +1,17 @@
-<div class="card shadow-sm"id="left">
+<div id="left">
     <!-- image  -->
     <img src="{{ '/media/' }}{{post.image}}" class="preview" id="left"/>
     <!-- Text -->
-    <div  class="page-body">
+    <div class="page-body">
         <p>
-            <h2>{{ post.position }}</h2>
-            <pre>{{ post.text }}</pre>
+            <h2><a style="color: hsl(0, 0%, 0%); text-decoration: none;">{{ post.position }}</a></h2>
+            <h2>{{post.price}} RUB</h2>
+            <!-- <pre>{{ post.text }}</pre> -->
         </p>
     <!-- Button for ordering -->
     <div class="wrapper">
         <div>
-            <a id="right" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'order.html' %}" role="button"><h4>ORDER</h4>
+            <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4>
             </a>
         </div>
     </div>

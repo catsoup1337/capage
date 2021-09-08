@@ -46,6 +46,7 @@ section {
 
 #center {text-align: center;}
 #right {float:right;}
+#right2 {float:right - 100px;}
 #left {float:left;}
 
 
@@ -56,10 +57,21 @@ section {
     padding: 20px;
 }
 
+.all-spaces {
+    width: 50%;
+    white-space: pre;
+}
+
 .preview {
     height: 400px;
     overflow: auto;
 }
+
+.preview-detail {
+    height: 900px; 
+    overflow: auto;
+}
+
 .marquee{
     width: 1435px;
     white-space:nowrap;

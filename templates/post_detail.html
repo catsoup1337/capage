@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% block title %} ORDER ничего нет {% endblock %}
+{% block content %}
+<div >
+    <!-- image  -->
+    <img src="{{ '/media/' }}{{post.image}}" alt="detail image for item" class="preview-detail" id="left"/>
+    <!-- Text -->
+    <div id="right2" class="page-body">
+        <p>
+            <h2>{{ post.position }}</h2>
+            <pre>{{ post.text }}</pre>
+        </p>
+    <!-- Button for ordering -->
+    <div class="wrapper">
+        <div>
+            <a id="right2" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'order.html'%}" role="button"><h4>{{ post.price }} RUB</h4>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
