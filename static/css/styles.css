@@ -72,7 +72,7 @@ section {
 }
 
 .marquee{
-    width: device-width;
+    width: 1435px;
     white-space:nowrap;
     overflow:hidden;
     bottom: 0;
