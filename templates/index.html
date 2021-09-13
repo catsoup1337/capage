@@ -1,6 +1,11 @@
 {% extends "base.html" %} 
 {% block title %} ничего нет {% endblock %}
 {% block content %} 
+  {% if request.mobile %}
+  Mobile
+  {% else %}
+  Not mobile
+  {% endif %}
   {% for post in object_list %}
   {% include "includes/post_item.html" with post=post %}
   {% endfor %}
