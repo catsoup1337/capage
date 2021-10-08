@@ -2,16 +2,15 @@
 {% block title %} ORDER ничего нет {% endblock %}
 {% block content %}
 <div >
-    <!-- image  -->
-    <img src="{{ '/media/' }}{{post.image}}" alt="detail image for item" class="preview-detail" id="left"/>
-    <!-- Text -->
-    <div id="right2" class="page-body">
+    <img src="{{ '/media/' }}{{post.image}}" class="preview" id="left"/>
+    <div class="page-body">
         <p>
-            <h2>{{ post.position }}</h2>
+            <h2><a style="color: hsl(0, 0%, 0%); text-decoration: none;">{{ post.position }}</a></h2>
+            <h3>{{post.price}} RUB</h3>
             <pre>{{ post.text }}</pre>
         </p>
     <!-- Button for ordering -->
-    <div class="wrapper">
+    <div class="price">
         <div>
             <form action="{% url 'cart:cart_add' post.pk%}" method="post">
                 <button> <h4>{{ post.price }} RUB</h4> </button>
@@ -19,8 +18,12 @@
             </form>
             <!-- <a id="right2" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'cart:cart_add' pk=post.pk%} " method="post" role="button"><h4>{{ post.price }} RUB</h4>
             </a> -->
+        </div> 
+        <div>
+            <!-- <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4> -->
+            </a>
         </div>
     </div>
     </div>
-</div>
+
 {% endblock %}

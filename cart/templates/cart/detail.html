@@ -4,10 +4,10 @@
 {% block title %}
   Корзина покупок
 {% endblock %}
-
 {% block content %}
-  <h1>KORZINA</h1>
+  <div id="right"><h3 id="center">KOR</h3><h1 >ZINA</h1></div>
   <table class="cart">
+    <div id="left"><h3 id="center">KOR</h3><h1>ZINA</h1></div>
     <thead>
       <tr>
         <th>position</th>
@@ -61,6 +61,9 @@
     </tbody>
   </table>
   <p id="right">
-    <a href="#" class="button">Оформить заказ</a>
+    <button class="submit" type="submit" value="refresh">
+      <a style="color: hsl(0, 0%, 29%); text-decoration: none;">{{ item.update_quantity_form.update }}</a>
+    </button>
+    <a href="#" class="submit" type="submit">Оформить заказ</a>
   </p>
 {% endblock %}
