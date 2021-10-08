@@ -63,13 +63,28 @@ section {
 }
 
 .preview {
-    height: 400px;
+    width: 50px;
     overflow: auto;
 }
 
 .preview-detail {
     height: 900px; 
     overflow: auto;
+}
+/* Button Style */
+button.submit {
+    background-color: #f5f5f5;
+    
+}
+
+.cart {
+    margin-bottom:40px;
+}
+
+thead th, tbody tr.total {
+    background:#5993bb;
+    color:#fff;
+    font-weight:bold;
 }
 
 .marquee{

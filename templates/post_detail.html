@@ -13,8 +13,12 @@
     <!-- Button for ordering -->
     <div class="wrapper">
         <div>
-            <a id="right2" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'order.html'%}" role="button"><h4>{{ post.price }} RUB</h4>
-            </a>
+            <form action="{% url 'cart:cart_add' post.pk%}" method="post">
+                <button> <h4>{{ post.price }} RUB</h4> </button>
+                {% csrf_token %}
+            </form>
+            <!-- <a id="right2" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'cart:cart_add' pk=post.pk%} " method="post" role="button"><h4>{{ post.price }} RUB</h4>
+            </a> -->
         </div>
     </div>
     </div>

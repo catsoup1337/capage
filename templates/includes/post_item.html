@@ -1,4 +1,4 @@
-<div id="left">
+<div class="items">
     <!-- image  -->
     <img src="{{ '/media/' }}{{post.image}}" class="preview" id="left"/>
     <!-- Text -->
@@ -9,7 +9,7 @@
             <!-- <pre>{{ post.text }}</pre> -->
         </p>
     <!-- Button for ordering -->
-    <div class="wrapper">
+    <div class="price">
         <div>
             <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4>
             </a>

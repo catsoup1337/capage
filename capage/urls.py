@@ -7,9 +7,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", include("posts.urls")),
-    path("auth/", include("django.contrib.auth.urls")),
     path("admin/", admin.site.urls, name='admin'),
+    path("", include("posts.urls")),
+    path("cart/", include("cart.urls", namespace="cart")),
+    path("auth/", include("django.contrib.auth.urls")),
+    
 ]
 
 if settings.DEBUG:

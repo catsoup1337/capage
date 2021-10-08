@@ -11,10 +11,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+CART_SESSION_ID = 'cart'
 # Application definition
 
 INSTALLED_APPS = [
+    'cart',
     'posts',
     'sorl.thumbnail',
     'django.contrib.sites',
@@ -113,14 +114,8 @@ USE_TZ = True
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 
-# Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 
-STATICFILES_DIRS = [
-    'capage/static/capage',
-]
+# STATICFILES_DIRS = ['capage/static/capage',]
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
