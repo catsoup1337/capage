@@ -69,16 +69,14 @@ section {
 }
 
 .items {
-    display:grid;
+    display:inline-block;
     flex-wrap: wrap;
 
 }
 
 .preview {
-    height: 38%;
-    padding: 0px;
-    left: 0;
-    overflow: auto;
+    width: 44%;
+    margin-top: 100px;
 }
 
 .preview-detail {
