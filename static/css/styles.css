@@ -60,24 +60,21 @@ section {
     float: left; 
 }
 .filters__img {
-    width: 600px;
-    height: 600px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
     float: left;
     margin-top: 100px;
   }
   
-  .filters__img img {
-    width: initial;
-    height: 100%;
-  }
+
 
 
 
 .page-body {
     display:inline-block;
     overflow: auto;
-    padding: 20px;
+    padding: 100px;
 }
 
 .all-spaces {

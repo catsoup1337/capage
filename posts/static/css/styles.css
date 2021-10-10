@@ -19,7 +19,11 @@ body {
 
 section {
     height: 100%
-}price
+}
+
+.cart{
+    padding-top: 3%;
+}
 
 .wrapper {
     min-height: 100%;
@@ -44,7 +48,9 @@ section {
     right: 0;
 }
 
-#center {text-align: center;}
+#center {
+    text-align: center;
+}
 #right {float:right;}
 #right2 {float:right - 100px;}
 #left {float:left;}
@@ -54,7 +60,7 @@ section {
 .page-body {
     display:inline-block;
     overflow: auto;
-    padding: 20px;
+    padding-left: 22%;
 }
 
 .all-spaces {
@@ -63,12 +69,15 @@ section {
 }
 
 .items {
-    display:table-cell;
+    display:grid;
+    flex-wrap: wrap;
+
 }
 
 .preview {
-    width: 50%;
-    padding-bottom: 10px;
+    height: 38%;
+    padding: 0px;
+    left: 0;
     overflow: auto;
 }
 
@@ -78,18 +87,14 @@ section {
 }
 
 .marquee{
-    width: 1450px;
+    width: 1435px;
     white-space:nowrap;
     overflow:hidden;
     bottom: 0;
     left: 0;
     right: 0;
     }
-     
-.button { 
-    all: unset;
-    }
-
+    
 .marquee span {
     color:#ffffff;
     font-size:20px;
@@ -108,3 +113,32 @@ section {
     100%{transform: translate(-100%, 0)}
 }
 
+
+thead th, tbody tr.total {
+    background:#000000;
+    color:rgb(255, 255, 255);
+    font-weight:bold;
+}
+
+.filters__img {
+    width: 44%;
+    margin-top: 100px;
+}
+  
+
+button.submit {
+    all: unset;
+    width: 40px;
+    height: 40px;
+
+    color: #ffffff;
+}
+
+button.submit_card {
+    all: unset;
+    width: 190px;
+    height: 50px;
+
+    color: #ffffff;
+    
+}

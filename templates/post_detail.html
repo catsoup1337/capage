@@ -1,29 +1,23 @@
 {% extends "base.html" %} 
 {% block title %} ORDER ничего нет {% endblock %}
 {% block content %}
-<div >
-    <img src="{{ '/media/' }}{{post.image}}" class="preview" id="left"/>
-    <div class="page-body">
+<img src="{{ '/media/' }}{{post.image}}"class="filters__img"/>
+<div class="page-body" >
+    <div>
         <p>
             <h2><a style="color: hsl(0, 0%, 0%); text-decoration: none;">{{ post.position }}</a></h2>
             <h3>{{post.price}} RUB</h3>
             <pre>{{ post.text }}</pre>
         </p>
     <!-- Button for ordering -->
-    <div class="price">
-        <div>
-            <form action="{% url 'cart:cart_add' post.pk%}" method="post">
-                <button> <h4>{{ post.price }} RUB</h4> </button>
-                {% csrf_token %}
-            </form>
-            <!-- <a id="right2" style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'cart:cart_add' pk=post.pk%} " method="post" role="button"><h4>{{ post.price }} RUB</h4>
-            </a> -->
-        </div> 
-        <div>
-            <!-- <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4> -->
-            </a>
-        </div>
-    </div>
-    </div>
+        <form action="{% url 'cart:cart_add' post.pk%}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <button class="submit_card" type="submit" value="refresh">
+                    <a style="color: hsl(0, 0%, 20%); text-decoration: none;"> ADD TO KORZINA</a>
+            </button>
 
+        </form>
+    </div>
+</div>
 {% endblock %}
