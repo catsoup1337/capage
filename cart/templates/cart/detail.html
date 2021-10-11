@@ -56,9 +56,16 @@
         <td colspan="29"></td>
         <th>total:</th>
         <th>{{ cart.get_total_price }}</th>
-        
       </thead>
-      
+      <tbody>
+        <td colspan="29"></td>
+        <th></th>
+        <td>
+          <div id="right">
+            <a style="color: hsl(0, 0%, 0%); text-decoration: none;"class="submit" type="submit" href="{% url 'checkout' %}">CHECK OUT</a>
+          </div>
+        </td>
+      </tbody>
       
   </table>
 
@@ -69,8 +76,6 @@
     <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
     <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
     <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="left">ZINAZINAZINA</h1></div>
-    <!-- <div id="right">
-      <a style="color: hsl(0, 0%, 0%); text-decoration: none;"class="submit" type="submit" href="#">CHECK OUT</a>
-    </div> -->
+    
 </div>
 {% endblock %}

@@ -125,3 +125,4 @@ LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 SITE_ID=1 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

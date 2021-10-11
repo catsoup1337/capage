@@ -57,6 +57,7 @@ class Cart(object):
         # сохраняем товар
         self.session.modified = True
 
+
     def remove(self, product):
         """
         Удаляем товар

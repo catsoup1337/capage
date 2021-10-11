@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Оформление заказа
+{% endblock %}
+{% block content %}
+  
+  <table id="right" class="cart">
+    <thead>
+      <tr>
+        <th></th><th></th>
+        <th>position</th>
+        <th></th>
+        <th>sub price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+        {% with product=item.product %}
+          <tr>
+            <th></th><th></th>
+            <td>{{ product.position }}</td>
+            <td ></td>
+            <td id="center">{{ item.total_price }}</td>
+            <td></td>
+
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <thead><th></th></thead> <thead><th></th></thead> <thead><th></th></thead>
+
+
+      <thead>
+        <td colspan="29"></td>
+        <th>total:</th>
+        <th>{{ cart.get_total_price }}</th>
+      </thead>
+      <tbody>
+        <td colspan="29"></td>
+        <th></th>
+        <td>
+          <div id="right">
+            <form action="{% url 'make_order' %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="btn btn-success btn-block mb-3" values="Оформить заказ">
+              </form>
+              
+          </div>
+        </td>
+      </tbody>
+      
+  </table>
+    
+<div id="left">
+    <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">OUTOUTOUT</h1></div>
+    <div><h3 id="left">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">CHECKCHECK</h1></div>
+    <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="left">OUTOUTOUT</h1></div>
+</div>
+{% endblock %}
