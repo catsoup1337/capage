@@ -3,6 +3,11 @@ html {
     height:100%;
     box-sizing: border-box;
 }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
 body {
     height:100%;
@@ -13,22 +18,33 @@ body {
     margin: 0;
 }
 
-* {
-    box-sizing: inherit;
-}
+.container {
+    padding-left: 1%;
 
+}
 section {
     height: 100%
 }
 
 .cart{
-    padding-top: 3%;
+    display: block;
+    padding: 10%;
 }
 
 .wrapper {
-    min-height: 100%;
+    max-height: 90%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+}
+
+.wrapper_about {
+    max-height: 90%;
+    max-width: 1140px;
+    width: calc((100% - 80px * 5));
+    padding-top: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    
 }
 
 .page-header{
@@ -56,27 +72,44 @@ section {
 #left {float:left;}
 
 
-
 .page-body {
     display:inline-block;
     overflow: auto;
-    padding-left: 22%;
+
 }
+
+.l-wrap {
+    max-width: 1140px;
+    padding-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.grid-item {
+    margin-right: 20px;
+    margin-top: 24px;
+    float: left;
+    width: calc((100% - 20px * 2) / 3);
+  }
+
+
+.grid-item:nth-child(3n+3) {
+    margin-right: 0;
+    float: right;
+  }
+  
+.three-col-grid::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
 
 .all-spaces {
     width: 50%;
     white-space: pre;
 }
 
-.items {
-    display:inline-block;
-    flex-wrap: wrap;
-
-}
-
 .preview {
-    width: 44%;
-    margin-top: 100px;
+    width: 66%;
 }
 
 .preview-detail {
@@ -84,7 +117,7 @@ section {
     overflow: auto;
 }
 
-.marquee{
+.marquee {
     width: 1435px;
     white-space:nowrap;
     overflow:hidden;

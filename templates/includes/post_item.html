@@ -1,19 +1,10 @@
-<div class="items">
-    <!-- image  -->
+<div class="grid-item">
     <img src="{{ '/media/' }}{{post.image}}" class="preview"/>
     <!-- Text -->
-    <div>
-        <p>
             <h2><a style="color: hsl(0, 0%, 0%); text-decoration: none;">{{ post.position }}</a></h2>
             <h3>{{post.price}} RUB</h3>
-            <!-- <pre>{{ post.text }}</pre> -->
-        </p>
-    <!-- Button for ordering -->
-    <div class="price">
+    <!-- Button for ordering-->
         <div>
-            <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4>
-            </a>
+            <a style="color: hsl(0, 0%, 0%); text-decoration: none;" href="{% url 'post_detail' post.pk %}" role="button"><h4>ORDER</h4></a>
         </div>
-    </div>
-    </div>
 </div>

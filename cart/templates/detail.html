@@ -6,7 +6,8 @@
 {% endblock %}
 {% block content %}
   
-  <table id="right" class="cart">
+  <table class="cart">
+    <div id="left"><h3 id="center">KOR</h3></div>
     <thead>
       <tr>
         <th></th><th></th>
@@ -40,6 +41,7 @@
             </td>
             <td></td>
             <td id ="center"><a style="color: hsl(0, 0%, 29%); text-decoration: none;" href="{% url 'cart:cart_remove' product.id %}">X</a></td>
+
             <td></td>
             <td id="center">{{ item.price }}</td>
             <th></th>
@@ -56,21 +58,12 @@
         <td colspan="29"></td>
         <th>total:</th>
         <th>{{ cart.get_total_price }}</th>
-        
+        <div id="left"><h1>ZINA</h1></div>
       </thead>
       
-      
   </table>
-
-<div id="left">
-    <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
-    <div><h3 id="left">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
-    <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="left">ZINAZINAZINA</h1></div>
-    <!-- <div id="right">
-      <a style="color: hsl(0, 0%, 0%); text-decoration: none;"class="submit" type="submit" href="#">CHECK OUT</a>
-    </div> -->
-</div>
+  <p id="center">
+    <td ></td>
+    <a style="color: hsl(0, 0%, 0%); text-decoration: none;"class="submit" type="submit" href="#">CHECK OUT</a>
+  </p>
 {% endblock %}
