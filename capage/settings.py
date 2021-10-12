@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'cart',
     'posts',
     'sorl.thumbnail',
+    'phonenumber_field',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',

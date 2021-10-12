@@ -1,13 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.decorators.http import require_POST
-from django.db import transaction
-from posts.models import Post
-from .cart import Cart
 from django.contrib import messages
+from django.db import transaction
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
+from posts.models import Post
+
+from .cart import Cart
 from .forms import CartAddProductForm, OrderForm
 from .models import Customer
-
 
 
 
@@ -24,7 +24,6 @@ def cart_add(request, pk):
     return redirect('cart:cart_detail')
 
 
-
 def cart_remove(request, pk):
     cart = Cart(request)
     product = get_object_or_404(Post, id=pk)
@@ -35,8 +34,8 @@ def cart_remove(request, pk):
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
-                                                                   'update': True})
+        item['update_quantity_form'] = CartAddProductForm(
+            initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
 
 
@@ -44,20 +43,11 @@ def get_checkout(request):
     cart = Cart(request)
     form = OrderForm(request.POST or None)
     for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
-                                                                   'update': True})
+        item['update_quantity_form'] = CartAddProductForm(
+            initial={'quantity': item['quantity'],'product': item['product'],'update': True})
     return render(request, 'cart/checkout.html', {
-                                        'cart': cart,
-                                        'form': form})
-
-def get_cart(request):
-    cart = Cart(request)
-    for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
-                                                                   'update': True})
-        item_for = item
-        
-    return item_for
+        'cart': cart,
+        'form': form})
 
 
 @transaction.atomic
@@ -75,15 +65,13 @@ def make_order(request):
         new_order.bying_type = form.cleaned_data['bying_type']
         new_order.order_date = form.cleaned_data['order_date']
         new_order.comment = form.cleaned_data['comment']
-        new_order.in_cart = get_cart(request)
-        new_order.save()
-        # self.cart.in_order = True
-        # self.cart.save()
+        new_order.in_cart = cart.get_cart()
         new_order.cart = cart.clear()
         new_order.save()
         customer.orders.add(new_order)
-        messages.add_message(request, messages.INFO, 'Спасибо за заказ! Менеджер с Вами свяжется')
+        messages.add_message(
+            request,
+            messages.INFO,
+            'Спасибо за заказ! Менеджер с Вами свяжется')
         return HttpResponseRedirect('/')
     return HttpResponseRedirect('/checkout/')
-
-

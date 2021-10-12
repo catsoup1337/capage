@@ -1,6 +1,8 @@
 from decimal import Decimal
+
 from django.conf import settings
 from posts.models import Post
+
 
 
 class Cart(object):
@@ -23,8 +25,9 @@ class Cart(object):
         product_ids = self.cart.keys()
         # получаем товары и добавляем их в корзину
         products = Post.objects.filter(id__in=product_ids)
-
+        self.products = products
         cart = self.cart.copy()
+
         for product in products:
             cart[str(product.id)]['product'] = product
 
@@ -32,7 +35,37 @@ class Cart(object):
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
-    
+
+
+
+    def get_cart(self):
+        """
+        Перебираем товары в корзине и получаем товары из базы данных.
+        """
+        product_ids = self.cart.keys()
+        products = Post.objects.filter(id__in=product_ids)
+        total = sum(Decimal(item['price']) * item['quantity']
+                   for item in self.cart.values())
+        b =[]
+        qty = sum(item['quantity']
+                    for item in self.cart.values())
+        prt = tuple(product
+                    for product in products)
+        pos_qty = tuple(item['quantity']
+                    for item in self.cart.values())
+        pos_pr = tuple(item['price']
+                    for item in self.cart.values())
+        
+        for i in range(len(pos_pr)):
+            b.append(f'{pos_qty[i]} x {pos_pr[i]} rub. -->{prt[i]}')
+        print(b)
+
+
+        return [f'Общая сумма:{total}; Мест:{qty}; Наименования: {b}.']
+
+
+
+
     def __len__(self):
         """
         Считаем сколько товаров в корзине
@@ -46,7 +79,7 @@ class Cart(object):
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0,
-                                      'price': str(product.price)}
+                                     'price': str(product.price)}
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
@@ -56,7 +89,6 @@ class Cart(object):
     def save(self):
         # сохраняем товар
         self.session.modified = True
-
 
     def remove(self, product):
         """
@@ -69,7 +101,8 @@ class Cart(object):
 
     def get_total_price(self):
         # получаем общую стоимость
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+        return sum(Decimal(item['price']) * item['quantity']
+                   for item in self.cart.values())
 
     def clear(self):
         # очищаем корзину в сессии
