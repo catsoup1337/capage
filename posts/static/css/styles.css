@@ -54,6 +54,10 @@ section {
 }
 
 .page-footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 99%;
+    margin: 0 auto;
     background-color: rgb(255, 255, 255);
     color: #fff;
     /* font-family: ; */
@@ -62,6 +66,35 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.page-footer__kor {
+    margin: 0;
+    font-size: 122%;
+    font-weight: bold;
+}
+
+.page-footer__zina {
+    margin: 0;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.page-footer__nothing {
+    margin: 0;
+    font-size: 138%;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.page-footer__nothing:hover {
+    opacity: 0.6;
+}
+
+.page-footer__inform {
+    margin: 0;
+    font-size: 122%;
+    font-weight: bold;
 }
 
 #center {
@@ -74,34 +107,61 @@ section {
 
 .page-body {
     display:inline-block;
-    overflow: auto;
+    padding-bottom: 9%;
 
 }
 
-.l-wrap {
+.three-col-grid {
     max-width: 1140px;
     padding-top: 5%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    column-gap: 1%;
+    row-gap: 10%;
 }
 .grid-item {
-    margin-right: 20px;
-    margin-top: 24px;
-    float: left;
-    width: calc((100% - 20px * 2) / 3);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
+.grid-item__title {
+    margin: 0;
+    padding-top: 10%;
+    font-size: 150%;
+    font-weight: 600;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
 
-.grid-item:nth-child(3n+3) {
-    margin-right: 0;
-    float: right;
-  }
-  
-.three-col-grid::after {
-    display: table;
-    clear: both;
-    content: '';
-  }
+.grid-item__price {
+    margin: 0;
+    padding-top: 7%;
+    font-size: 120%;
+    font-weight: bold;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+.grid-order {
+    padding-top: 15%;
+    max-width: 28%;
+
+}
+
+.grid-order__link {
+    text-decoration: none;
+    color: #000000;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+.grid-order__title {
+    margin: 0;
+    font-size: 105%;
+    font-weight: bold;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
 
 .all-spaces {
     width: 50%;
@@ -110,6 +170,7 @@ section {
 
 .preview {
     width: 66%;
+    align-self: center;
 }
 
 .preview-detail {

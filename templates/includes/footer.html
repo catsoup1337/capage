@@ -1,5 +1,18 @@
 <footer class="page-footer">
-  <a id="left" href="{% url 'order.html' %}" style="color: hsl(0, 0%, 0%); text-decoration: none;" ><span ><h3>INFORM</h3></span></a>
-  <a id="right" href="{% url 'cart:cart_detail' %}" style="color: hsl(0, 0%, 0%); text-decoration: none;" ><span> <h3 id="right">ZINA</h3> <h4 id="right">KOR</h4></span></a>
-  <a id="center" href="{% url 'index.html' %}" style="color: hsl(0, 0%, 0%); text-decoration: none;"><span><h1>ничего нет</h1></span></a>
+  <a href="{% url 'order.html' %}"style="color: hsl(0, 0%, 0%); text-decoration: none;" >
+    <span>
+      <p class="page-footer__inform">INFORM</p>
+    </span>
+  </a>
+  <a href="{% url 'index.html' %}" style="color: hsl(0, 0%, 0%); text-decoration: none;">
+    <span>
+      <p class="page-footer__nothing">ничего нет</p>
+    </span>
+  </a>
+  <a href="{% url 'cart:cart_detail' %}" style="color: hsl(0, 0%, 0%); text-decoration: none;" >
+    <span>
+      <p class="page-footer__kor" id="right">ZINA</p>
+      <p class="page-footer__zina" id="right">KOR</p>
+    </span>
+  </a>
 </footer>
