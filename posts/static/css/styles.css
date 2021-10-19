@@ -6,7 +6,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
@@ -91,6 +91,14 @@ section {
     opacity: 0.6;
 }
 
+.page-footer__inform:hover {
+    opacity: 0.6;
+}
+
+.page-footer__zina:hover {
+    opacity: 0.6;
+}
+
 .page-footer__inform {
     margin: 0;
     font-size: 122%;
@@ -126,7 +134,7 @@ section {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-  }
+}
 
 .grid-item__title {
     margin: 0;
@@ -233,4 +241,8 @@ button.submit_card {
 
     color: #ffffff;
     
+}
+
+.textinput {
+    border: none;
 }
