@@ -333,7 +333,6 @@ figure {
 	height: inherit;
 	overflow: hidden;
 	position: relative;
-	width: 500px;
     margin: 0 auto;
 }
 .news > input {
@@ -343,6 +342,7 @@ figure {
 	height: inherit;
 	position: absolute;
 	width: inherit;
+    display: flex;
 }
 
 .news .controls {
