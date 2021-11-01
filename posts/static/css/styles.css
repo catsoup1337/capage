@@ -224,7 +224,7 @@ thead th, tbody tr.total {
     width: 44%;
     margin-top: 100px;
 }
-  
+
 
 button.submit {
     all: unset;
@@ -321,10 +321,11 @@ figure {
 }
 
 .news {
+
+    overflow: scroll;
 	height: 200px;
 	position: relative;
 	width: 97%;
-    margin: 0 auto;
     border-top: 5px solid #000000;
     border-bottom: 5px solid #000000;
 }

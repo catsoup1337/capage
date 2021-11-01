@@ -11,10 +11,11 @@ class Post(models.Model):
         return self.position
 
 
+
 class News(models.Model):
     title_news = models.CharField(max_length=200)
-    prew_text = models.TextField()
-    core_text = models.TextField()
+    prew_text = models.TextField(max_length=1000)
+    core_text = models.TextField( blank=True, null=True)
     image_news = models.ImageField(upload_to='news_pic/', blank=True, null=True)
 
     def __str__(self):

@@ -1,7 +1,15 @@
-<div class="grid-news">
-    <img src="{{ '/media/' }}{{news.image_news}}" class="preview"/>
-    <!-- Text -->
-    <p class="">{{ news.title_news }}</p>
-    <p class="">{{ news.prew_text }} </p>
-    
-</div>
+        <div class="slider">
+                <div class="description-container">
+                    <figure>
+                    <img src="{{ '/media/' }}{{new.image_news}}" alt="kartinka" class="description-img">
+                    </figure>
+                    <div class="description-text">
+                    <h3 class="description-text__title">
+                        {{ new.title_news }}
+                    </h3>
+                    <p class="description-text__subtitle">
+                        {{ new.prew_text }}
+                    </p>
+                    </div>
+                </div>
+        </div>

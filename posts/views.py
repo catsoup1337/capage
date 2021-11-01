@@ -4,14 +4,21 @@ from django.views.generic import ListView
 
 from .models import Post, News
 
-class NewsListView(ListView):
-    model = News
-    template_name = 'index.html'
+
+# class NewsListView(ListView):
+#     model = News
+#     template_name = 'index.html'
+#     context_object_name = 'news'
 
 
-class BlogListView(ListView):
-    model = Post
-    template_name = 'index.html'
+# class BlogListView(ListView):
+#     model = Post
+#     template_name = 'index.html'
+
+def home_view(request):
+    news = News.objects.all()
+    posts = Post.objects.all()
+    return render(request,'index.html',{'news':news, 'posts':posts})
 
 
 def order(request):

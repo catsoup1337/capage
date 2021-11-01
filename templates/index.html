@@ -3,99 +3,17 @@
 {% block title %} ничего нет {% endblock %}
 {% block content %} 
     <div class="news_list">
-        <!-- {% for news in page %}
-        {% include "includes/news_item.html" with news=news %}
-        {% endfor %} -->
+      <div class="grid-news">
         <div class="news">
-          <input type="radio" name="point" id="slide1" checked>
-          <input type="radio" name="point" id="slide2">
-          <input type="radio" name="point" id="slide3">
-          <div class="slider">
-            <div class="slides slide1">
-                    <div class="description-container">
-                      <figure>
-                      <img src="../media/posts/GAC-21S047_S21-BLACK_01 copy 2.png" alt="kartinka" class="description-img">
-                      </figure>
-                      <div class="description-text">
-                        <h3 class="description-text__title">
-                          zagolovoq novosti
-                        </h3>
-                        <p class="description-text__subtitle">
-                          main part about news news news news news main part about news news news news newsmain part about news news news news newsmain part about news news news news news
-                        </p>
-                      </div>
-                    </div>
-                    <div class="description-container">
-                      <figure>
-                      <img src="../media/posts/GAC-21S047_S21-BLACK_01 copy 2.png" alt="kartinka" class="description-img">
-                      </figure>
-                      <div class="description-text">
-                        <h3 class="description-text__title">
-                          zagolovoq novosti
-                        </h3>
-                        <p class="description-text__subtitle">
-                          main part about news news news news news main part about news news news news newsmain part about news news news news newsmain part about news news news news news
-                        </p>
-                      </div>
-                    </div>
-                    <div class="description-container">
-                      <figure>
-                      <img src="../media/posts/GAC-21S047_S21-BLACK_01 copy 2.png" alt="kartinka" class="description-img">
-                      </figure>
-                      <div class="description-text">
-                        <h3 class="description-text__title">
-                          zagolovoq novosti
-                        </h3>
-                        <p class="description-text__subtitle">
-                          main part about news news news news news main part about news news news news newsmain part about news news news news newsmain part about news news news news news
-                        </p>
-                      </div>
-                    </div>
-                </div>
-            <div class="slides slide2">
-              <div class="description-container">
-                <figure>
-                <img src="../media/posts/GAC-21S047_S21-BLACK_01_YM0fHLR.png" alt="kartinka" class="description-img">
-                </figure>
-                <div class="description-text">
-                  <h3 class="description-text__title">
-                    new zagolovoq
-                  </h3>
-                  <p class="description-text__subtitle">
-                    new post post post post post post  
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="slides slide3">
-              <div class="description-container">
-                <figure>
-                <img src="../media/posts/GAC-21S047_S21-BLACK_01.png" alt="kartinka" class="description-img">
-                </figure>
-                <div class="description-text">
-                  <h3 class="description-text__title">
-                    another one zagolovok
-                  </h3>
-                  <h4 class="description-text__subtitle">
-                    new post post post another one post
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>	
-          <div class="controls">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-          </div>
+            {% for new in news %}
+            {% include "includes/news_item.html" with new=new %}
+            {% endfor %}
         </div>
-    
-    
-    
-      </div>
+      </div> 
+    </div>   
     <div class="l-wrap">
       <div class="three-col-grid">
-        {% for post in object_list %}
+        {% for post in posts %}
         {% include "includes/post_item.html" with post=post %}
         {% endfor %}
       </div>
