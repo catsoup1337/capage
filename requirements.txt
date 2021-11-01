@@ -3,13 +3,12 @@ certifi==2021.10.8
 chardet==4.0.0
 dj-database-url==0.5.0
 Django==3.2.8
-dateutil
 django-crispy-forms==1.13.0
 djangorestframework==3.12.4
 django-phonenumber-field==5.0.0
 phonenumberslite==8.12.11
 gunicorn==20.1.0
-heroku
+heroku==0.1.4
 idna==3.2
 importlib-metadata==4.8.1
 more-itertools==8.10.0
@@ -20,7 +19,7 @@ py==1.10.0
 pyparsing==2.4.7
 pytest==6.2.5
 pytest-django==4.4.0
-python-dateutil==2.8.2
+python-dateutil==1.5
 pytz==2021.3
 requests==2.26.0
 six==1.16.0
