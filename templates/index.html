@@ -1,11 +1,84 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block title %} ничего нет {% endblock %}
 {% block content %} 
-<div class="l-wrap">
-  <div class="three-col-grid">
-    {% for post in object_list %}
-    {% include "includes/post_item.html" with post=post %}
-    {% endfor %}
-  </div>
-</div>
+    <div class="news_list">
+        <!-- {% for news in page %}
+        {% include "includes/news_item.html" with news=news %}
+        {% endfor %} -->
+        <div class="news">
+          <input type="radio" name="point" id="slide1" checked>
+          <input type="radio" name="point" id="slide2">
+          <input type="radio" name="point" id="slide3">
+          <div class="slider">
+            <div class="slides slide1">
+                    <div class="description-container">
+                      <figure>
+                      <img src="../media/posts/GAC-21S047_S21-BLACK_01 copy 2.png" alt="kartinka" class="description-img">
+                      </figure>
+                      <div class="description-text">
+                        <h3 class="description-text__title">
+                          zagolovoq novosti
+                        </h3>
+                        <p class="description-text__subtitle">
+                          main part about news news news news news main part about news news news news newsmain part about news news news news newsmain part about news news news news news
+                        </p>
+                      </div>
+                    </div>
+                </div>
+            <div class="slides slide2">
+              <h2 class="description__title">Польза на каждом этапе работы<br>с линейным персоналом</h2>
+              <div class="description-container">
+                <figure>
+                <img src="./imgs/shutterstock_1927592033 1.png" alt="Дэвушка и молодой челик" class="description-img">
+                <figcaption class="description__caption">* Курьеры, официанты, водители, работники склада, торговых залов, операторы службы поддержки</figcaption>
+                </figure>
+                <div class="description-text">
+                  <h3 class="description-text__title">
+                    Быстрое и качественное развитие команды
+                  </h3>
+                  <h4 class="description-text__subtitle">
+                    Learn.fm помогает обучать сотрудников новым услугам, продуктам и навыкам, как только они появляются.<br> 
+                    Благодаря централизованному управлению курсами, вы всегда уверены, что сотрудники получают актуальную<br>и полную информацию, 
+                    где бы они не находились.   
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="slides slide3">
+              <h2 class="description__title">Польза на каждом этапе работы<br>с линейным персоналом</h2>
+              <div class="description-container">
+                <figure>
+                <img src="./imgs/smartmockups_kuojndnt 1.png" alt="Телефон в руке" class="description-img">
+                <figcaption class="description__caption">* Курьеры, официанты, водители, работники склада, торговых залов, операторы службы поддержки</figcaption>
+                </figure>
+                <div class="description-text">
+                  <h3 class="description-text__title">
+                    Регулярная аттестация<br>и обратная связь<br>от сотрудников
+                  </h3>
+                  <h4 class="description-text__subtitle">
+                    С помощью сервиса легко не только давать,<br>но и проверять знания и компетенции персонала — проводите тесты, 
+                    собирайте обратную связь, чтобы оперативно помогать там, где возникают сложности.   
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>	
+          <div class="controls">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+          </div>
+        </div>
+    
+    
+    
+      </div>
+    <div class="l-wrap">
+      <div class="three-col-grid">
+        {% for post in object_list %}
+        {% include "includes/post_item.html" with post=post %}
+        {% endfor %}
+      </div>
+    </div>
 {% endblock content %}

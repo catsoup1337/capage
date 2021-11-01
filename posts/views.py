@@ -2,13 +2,17 @@ from cart.forms import CartAddProductForm
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
-from .models import Post
+from .models import Post, News
 
- 
+class NewsListView(ListView):
+    model = News
+    template_name = 'index.html'
+
+
 class BlogListView(ListView):
     model = Post
     template_name = 'index.html'
- 
+
 
 def order(request):
     return render(request, 'order.html')

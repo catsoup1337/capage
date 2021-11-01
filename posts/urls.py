@@ -5,6 +5,7 @@ from cart import views as cart_views
 
 urlpatterns = [
     path('', views.BlogListView.as_view(), name="index.html"),
+    path('', views.NewsListView.as_view(), name="index.html"),
     path('order/', views.order, name="order.html"),
     path('item/<int:pk>/', views.post_detail, name='post_detail'),
     path('checkout', cart_views.get_checkout, name="checkout"),
