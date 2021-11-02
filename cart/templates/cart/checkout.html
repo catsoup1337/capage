@@ -6,8 +6,9 @@
 Оформление заказа
 {% endblock %}
 {% block content %}
-<div class="container_checkout">
+<div class="container_checkout2">
   <div class="table_check_out">
+    <div>
     <table id="right" class="cart">
       <thead>
           <th>position</th>
@@ -29,13 +30,16 @@
           <th>{{ cart.get_total_price }}</th>
         </thead>
     </table>
+    </div>
+    <div>
+      <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn-checkout" type="submit" values="Оформить заказ">
+      </form>
+    </div>
   </div>
-  <div id="text_check_out">
-    <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <input class="btn-checkout" type="submit" values="Оформить заказ">
-    </form>
+  <div class="text_check_out">
       <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
       <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">OUTOUTOUT</h1></div>
       <div><h3 id="left">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>

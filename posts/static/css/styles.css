@@ -281,12 +281,17 @@ a.submit:hover {
     height: 25px;
     font-size: 20px;
     cursor: text;
+    border: none;
+    border-bottom: 1px solid #000000;e
 }
 
 .emailinput {
     width: 170px;
     height: 25px;
     font-size: 20px;
+    cursor: text;
+    border: none;
+    border-bottom: 1px solid #000000;
 }
 
 .textarea {
@@ -296,10 +301,12 @@ a.submit:hover {
 }
 
 .form-checkout {
-    border: 1px solid #000000;
+    border: 3px solid #000000;
 }
 
 .select {
+    border: none;
+    border-bottom: 1px solid;
     width: 170px;
     height: 25px;
     font-size: 20px;
@@ -307,7 +314,7 @@ a.submit:hover {
 }
 
 .btn-checkout {
-    margin-left: 5px;
+    margin-left: 90px;
     margin-bottom: 5px;
     width: 170px;
     height: 30px;
@@ -315,15 +322,25 @@ a.submit:hover {
     color: #fff;
     background: #000;
     cursor: pointer;
+    border:none;
 }
 
 .btn-checkout:hover {
     background: #fff;
     color: #000;
+    border: none;
+    border-bottom: 3px solid;
+    border-top: 3px solid;
 }
 
 .form-group {
-    padding-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 350px;
+    flex-wrap: wrap;
+    padding: 5px;
+    flex-direction: row;
+
 }
 
 .btn-news {
@@ -565,4 +582,11 @@ figure {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.container_checkout2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
