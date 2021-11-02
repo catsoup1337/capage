@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    
+    justify-content: space-around;
 }
 
 .container {
@@ -555,4 +555,14 @@ figure {
 .hide:checked + label + div {
     display: block; 
     padding: 30px; 
+}
+
+.table_check_out {
+    display: contents;
+}
+
+.text_check_out {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
