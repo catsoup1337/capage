@@ -2,15 +2,19 @@
 {% load static %}
 {% block title %} ничего нет {% endblock %}
 {% block content %} 
-    <div class="news_list">
-      <div class="grid-news">
-        <div class="news">
+
+          <input class="hide" id="hd-1" type="checkbox">
+          <label for="hd-1">NEWS</label>
+            <div class="news_list">
+              <div class="grid-news">
+                <div class="news">
             {% for new in news %}
             {% include "includes/news_item.html" with new=new %}
             {% endfor %}
-        </div>
-      </div> 
-    </div>   
+                </div>
+              </div>
+            </div> 
+          </div>   
     <div class="l-wrap">
       <div class="three-col-grid">
         {% for post in posts %}
