@@ -18,11 +18,18 @@ body {
     margin: 0;
 }
 
+.container_checkout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
 .container {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    padding-top: 150px;
+
 
 }
 section {
@@ -60,7 +67,7 @@ section {
 .page-footer {
     display: flex;
     justify-content: space-between;
-    max-width: 99%;
+    max-width: 100%;
     margin: 0 auto;
     background-color: rgb(255, 255, 255);
     color: #fff;
@@ -140,10 +147,9 @@ section {
     max-width: 1140px;
     padding-top: 5%;
     margin: 0 auto;
-    display: grid;
+    flex-wrap: wrap;
+    display: flex;
     justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
     column-gap: 1%;
     row-gap: 10%;
 }
@@ -151,6 +157,7 @@ section {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    max-width: 32%;
 }
 
 .grid-item__title {

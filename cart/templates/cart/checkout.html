@@ -6,61 +6,42 @@
 Оформление заказа
 {% endblock %}
 {% block content %}
-  
-  <table id="right" class="cart">
-    <thead>
-      <tr>
-        <th></th><th></th>
-        <th>position</th>
-        <th></th>
-        <th>sub price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in cart %}
-        {% with product=item.product %}
-          <tr>
-            <th></th><th></th>
-            <td>{{ product.position }}</td>
-            <td ></td>
-            <td id="center">{{ item.total_price }}</td>
-            <td></td>
-
-          </tr>
-        {% endwith %}
-      {% endfor %}
-      <thead><th></th></thead> <thead><th></th></thead> <thead><th></th></thead>
-
-
+<div class="container_checkout">
+  <div class="table_check_out">
+    <table id="right" class="cart">
       <thead>
-        <td colspan="29"></td>
-        <th>total:</th>
-        <th>{{ cart.get_total_price }}</th>
+          <th>position</th>
+          <th>quantity
+          <th>sub price</th>
       </thead>
       <tbody>
-        <td colspan="29"></td>
-        <th></th>
-        <td>
-          <div id="right">
-            <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <input class="btn-checkout" type="submit" values="Оформить заказ">
-              </form>
-              
-          </div>
-        </td>
-      </tbody>
-      
-  </table>
-    
-<div id="left">
-    <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
-    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">OUTOUTOUT</h1></div>
-    <div><h3 id="left">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
-    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">CHECKCHECK</h1></div>
-    <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
-    <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="left">OUTOUTOUT</h1></div>
+        {% for item in cart %}
+          {% with product=item.product %}
+            <tr>
+              <td>{{ product.position }}</td>
+              <td id="center">{{ item.quantity}}</td>
+              <td id="center">{{ item.total_price }}</td>
+            </tr>
+          {% endwith %}
+        {% endfor %}
+        <thead>
+          <th>total:</th>
+          <th>{{ cart.get_total_price }}</th>
+        </thead>
+    </table>
+  </div>
+  <div id="text_check_out">
+    <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input class="btn-checkout" type="submit" values="Оформить заказ">
+    </form>
+      <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+      <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">OUTOUTOUT</h1></div>
+      <div><h3 id="left">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+      <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="center">CHECKCHECK</h1></div>
+      <div><h3 id="center">CHECKCHECKCHECK</h3><h1 id="left">CHECKCHECK</h1></div>
+      <div><h3 id="left">OUTOUTOUTOUTOUTOUT</h3><h1 id="left">OUTOUTOUT</h1></div>
+  </div>
 </div>
 {% endblock %}

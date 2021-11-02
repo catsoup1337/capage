@@ -5,77 +5,55 @@
   Корзина покупок
 {% endblock %}
 {% block content %}
-  
-  <table id="right" class="cart">
-    <thead>
-      <tr>
-        <th></th><th></th>
-        <th>position</th>
-        <th></th>
-        <th>quantity</th>
-        <th></th>
-        <th>delete</th>
-        <th></th>
-        <th>price</th>
-        <th></th>
-        <th>sub price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in cart %}
-        {% with product=item.product %}
-          <tr>
-            <th></th><th></th>
-            <td>{{ product.position }}</td>
-            <td ></td>
-            <td>
-              <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                <button class="submit" type="submit" value="refresh">
-                  <a style="color: hsl(0, 0%, 29%); text-decoration: none;">{{ item.update_quantity_form.update }} &#8634;</a>
-                </button>
-                {% csrf_token %}
-              </form>
-            </td>
-            <td></td>
-            <td id ="center"><a style="color: hsl(0, 0%, 29%); text-decoration: none;" href="{% url 'cart:cart_remove' product.id %}">X</a></td>
-            <td></td>
-            <td id="center">{{ item.price }}</td>
-            <th></th>
-            <td id="center" class="num">{{ item.total_price }}</td>
-            <td></td>
-
-          </tr>
-        {% endwith %}
-      {% endfor %}
-      <thead><th></th></thead> <thead><th></th></thead> <thead><th></th></thead>
-
-
+<div class="container_checkout">
+    <div class="table_check_out">
+    <table class="cart">
       <thead>
-        <td colspan="29"></td>
-        <th>total:</th>
-        <th>{{ cart.get_total_price }}</th>
+        <tr>
+          <th>position</th>
+          <th>quantity</th>
+          <th>delete</th>
+          <th>price</th>
+          <th>sub price</th>
+        </tr>
       </thead>
       <tbody>
-        <td colspan="29"></td>
-        <th></th>
-        <td>
-          <div id="right">
+        {% for item in cart %}
+          {% with product=item.product %}
+            <tr>
+              <td>{{ product.position }}</td>
+              <td>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                  {{ item.update_quantity_form.quantity }}
+                  <button class="submit" type="submit" value="refresh">
+                    <a style="color: hsl(0, 0%, 29%); text-decoration: none;">{{ item.update_quantity_form.update }} &#8634;</a>
+                  </button>
+                  {% csrf_token %}
+                </form>
+              </td>
+              <td id ="center"><a style="color: hsl(0, 0%, 29%); text-decoration: none;" href="{% url 'cart:cart_remove' product.id %}">X</a></td>
+              <td id="center">{{ item.price }}</td>
+              <td id="center" class="num">{{ item.total_price }}</td>
+            </tr>
+          {% endwith %}
+        {% endfor %}
+        <thead>
+          <th>total:</th>
+          <th>{{ cart.get_total_price }}</th>
+          <th>
             <a class="submit" type="submit" href="{% url 'checkout' %}">CHECK OUT</a>
-          </div>
-        </td>
-      </tbody>
-      
-  </table>
-
-<div id="left">
-    <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
-    <div><h3 id="left">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
-    <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
-    <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="left">ZINAZINAZINA</h1></div>
-    
+          </th>
+        </thead>
+    </table>
+  </div>
+  <div id="text_check_out">
+      <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
+      <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
+      <div><h3 id="left">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
+      <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="center">ZINAZINAZINA</h1></div>
+      <div><h3 id="center">KORKORKORKORKOR</h3><h1 id="left">KORKORKOR</h1></div>
+      <div><h3 id="left">ZINAZINAZINAZINAZINA</h3><h1 id="left">ZINAZINAZINA</h1></div>
+  </div>
+</div>
 </div>
 {% endblock %}
