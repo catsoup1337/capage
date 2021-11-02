@@ -19,7 +19,10 @@ body {
 }
 
 .container {
-    padding-left: 1%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding-top: 150px;
 
 }
 section {
@@ -28,7 +31,7 @@ section {
 
 .cart{
     display: block;
-    padding: 10%;
+    align-self: center;
 }
 
 .wrapper {
@@ -73,13 +76,13 @@ section {
     margin: 0;
     font-size: 122%;
     font-weight: bold;
+    height: 18px;
 }
 
 .page-footer__zina {
     margin: 0;
     font-size: 90%;
     font-weight: bold;
-    height: 16px;
 }
 
 .korzina {
@@ -107,12 +110,12 @@ section {
 
 .page-footer__kor:hover {
     opacity: 0.6;
-}
-
-.page-footer__zina:hover + .page-footer__kor {
     border-bottom: 5px solid rgb(133, 0, 0);
 }
 
+.page-footer__zina:hover + .page-footer__kor {
+    border-bottom: 5px solid rgb(133, 0, 0); 
+}
 
 .page-footer__inform {
     margin: 0;
@@ -238,7 +241,6 @@ thead th, tbody tr.total {
     margin-top: 100px;
 }
   
-
 button.submit {
     all: unset;
     width: 40px;
@@ -256,8 +258,69 @@ button.submit_card {
     
 }
 
+a.submit {
+    color: hsl(0deg 0% 100%);
+    background: #000;
+    text-decoration: none;
+}
+
+a.submit:hover {
+    background: #fff;
+    color: hsl(0, 0%, 0%);
+}
+
 .textinput {
-    border: none;
+    width: 170px;
+    height: 25px;
+    font-size: 20px;
+    cursor: text;
+}
+
+.emailinput {
+    width: 170px;
+    height: 25px;
+    font-size: 20px;
+}
+
+.textarea {
+    width: 296px;
+    font-size: 20px;
+    height: 170px;
+}
+
+.form-checkout {
+    border: 1px solid #000000;
+}
+
+.select {
+    width: 170px;
+    height: 25px;
+    font-size: 20px;
+    cursor: help;
+}
+
+.btn-checkout {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    width: 170px;
+    height: 30px;
+    font-size: 20px;
+    color: #fff;
+    background: #000;
+    cursor: pointer;
+}
+
+.btn-checkout:hover {
+    background: #fff;
+    color: #000;
+}
+
+.form-group {
+    padding-left: 5px;
+}
+
+.btn-news {
+    padding: 1%;
 }
 
 .news_list {
@@ -287,12 +350,10 @@ figure {
 .description-container {
     display: flex;
     justify-content: center;
-    height: 200px;
 }
 
 .description-img {
     padding-top: 10px;
-    /* border-radius: 100px; */
     width: 230px;
     height: 230px;
 }
@@ -346,7 +407,6 @@ figure {
 }
 
 .slider {
-	height: 200px;
 	position: relative;
     margin: 0 auto;
 }

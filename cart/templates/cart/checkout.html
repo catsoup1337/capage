@@ -43,10 +43,10 @@
         <th></th>
         <td>
           <div id="right">
-            <form action="{% url 'make_order' %}" method="POST">
+            <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="submit" values="Оформить заказ">
+                <input class="btn-checkout" type="submit" values="Оформить заказ">
               </form>
               
           </div>
