@@ -287,7 +287,7 @@ a.submit:hover {
     font-size: 20px;
     cursor: text;
     border: none;
-    border-bottom: 1px solid #000000;e
+    border-bottom: 1px solid #000000;
 }
 
 .emailinput {
@@ -546,16 +546,16 @@ figure {
 .news::-webkit-scrollbar {
     width: 8px;               /* ширина scrollbar */
     height: 6px;
-  }
+}
 .news::-webkit-scrollbar-track {
     background-color: #fff;
-  }
+}
 .news::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background: rgb(0, 0, 0)
-  }
+}
 
-  .hide, .hide + label ~ div {
+.hide, .hide + label ~ div {
     display: none; 
 }
 /* вид текста label */
@@ -603,4 +603,39 @@ figure {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+.wrapper_about {
+    font-size: 122%;
+}
+
+@media screen and (max-width: 320px) {
+    .page-footer__inform {
+        font-size: 100%;
+    }
+    .page-footer__nothing {
+        font-size: 100%;
+    }
+    .page-footer__kor {
+        font-size: 100%;
+    }
+    .page-footer__zina {
+        font-size: 68%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .inform {
+        flex-direction: column;
+        display: flex;
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .wrapper_about {
+        width: inherit;
+        font-size: 100%;
+    }
 }
