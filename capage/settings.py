@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -113,17 +113,36 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 
 # STATICFILES_DIRS = ['capage/static/capage',]
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# MEDIA_URL = '/static/media/posts/'
 LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 SITE_ID=1 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AWS_ACCESS_KEY_ID = 'AKIAQ5WC2YFVTHPOCO5D'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'capage-static'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+] 
+STATIC_URL='https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+STATICFILES_FINDERS = (           'django.contrib.staticfiles.finders.FileSystemFinder',    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+AWS_DEFAULT_ACL = None
