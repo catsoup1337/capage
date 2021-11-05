@@ -1,8 +1,15 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block title %} ничего нет {% endblock %}
-{% block news %} 
+
+{% block content %} 
+      <div class="btn-news">
         <div class="label_news">
+          <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
           <input class="hide" id="hd-1" type="checkbox">
           <label for="hd-1">NEWS</label>
             <div class="news_list">
@@ -14,7 +21,8 @@
                 </div>
               </div>
             </div> 
-            </div>
+        </div>
+      </div>
     <div class="l-wrap">
       <div class="three-col-grid">
         {% for post in posts %}
@@ -22,4 +30,4 @@
         {% endfor %}
       </div>
     </div>
-{% endblock news %}
+{% endblock %}

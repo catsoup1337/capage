@@ -45,7 +45,7 @@ class Cart(object):
         product_ids = self.cart.keys()
         products = Post.objects.filter(id__in=product_ids)
         total = sum(Decimal(item['price']) * item['quantity']
-                   for item in self.cart.values())
+                    for item in self.cart.values())
         b =[]
         qty = sum(item['quantity']
                     for item in self.cart.values())
@@ -79,7 +79,7 @@ class Cart(object):
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0,
-                                     'price': str(product.price)}
+                                    'price': str(product.price)}
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:

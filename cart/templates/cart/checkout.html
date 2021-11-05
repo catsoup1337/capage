@@ -6,13 +6,20 @@
 Оформление заказа
 {% endblock %}
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div class="container_checkout2">
   <div class="table_check_out">
     <div>
     <table id="right" class="cart">
       <thead>
           <th>position</th>
-          <th>quantity
+          <th>quantity</th>
           <th>sub price</th>
       </thead>
       <tbody>
@@ -32,11 +39,18 @@
     </table>
     </div>
     <div>
-      <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
+      {% if user.is_authenticated %} 
+      <div>
+        <form class="form-checkout" action="{% url 'make_order' %}" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
         <input class="btn-checkout" type="submit" values="Оформить заказ">
-      </form>
+        </form>
+      </div>
+      {% else %}
+      <p class="form-checkout">You are logged out!</p>
+      <p class="form-checkout"><a href="{% url 'login' %}">Log in </a>pls, or <a  href="{% url 'signup' %}">Sign up</a></p>
+      {% endif %}
     </div>
   </div>
   <div class="text_check_out">

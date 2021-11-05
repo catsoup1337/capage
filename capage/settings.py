@@ -17,6 +17,7 @@ CART_SESSION_ID = 'cart'
 INSTALLED_APPS = [
     'cart',
     'posts',
+    'accounts',
     'sorl.thumbnail',
     'phonenumber_field',
     'django.contrib.sites',
@@ -95,6 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -122,8 +124,8 @@ DATABASES['default'].update(prod_db)
 
 # MEDIA_URL = '/static/media/posts/'
 LOGIN_URL = '/auth/login/'
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
 SITE_ID=1 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

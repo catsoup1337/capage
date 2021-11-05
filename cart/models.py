@@ -9,31 +9,36 @@ User = get_user_model()
 # Create your models here.
 
 
-class Customer(models.Model):
-    user = models.ForeignKey(
-        User,
-        verbose_name="Пользователь",
-        on_delete=models.CASCADE)
-    phone = models.CharField(
-        max_length=20,
-        verbose_name="Номер телефона",
-        null=True,
-        blank=True)
-    adress = models.CharField(
-        max_length=255,
-        verbose_name="Адрес",
-        null=True,
-        blank=True)
-    orders = models.ManyToManyField(
-        "Order",
-        verbose_name="Заказы покупателя",
-        related_name="related_customer",
-        null=True,
-        blank=True)
+# class Customer(models.Model):
+#     user = models.ForeignKey(
+#         User,
+#         verbose_name="Пользователь",
+#         on_delete=models.CASCADE)
+#     phone = models.CharField(
+#         max_length=20,
+#         verbose_name="Номер телефона",
+#         null=True,
+#         blank=True)
+#     email = models.CharField(
+#         max_length=100,
+#         verbose_name="Почта",
+#         null=True,
+#         blank=True)
+#     adress = models.CharField(
+#         max_length=255,
+#         verbose_name="Адрес",
+#         null=True,
+#         blank=True)
+#     orders = models.ManyToManyField(
+#         "Order",
+#         verbose_name="Заказы покупателя",
+#         related_name="related_customer",
+#         null=True,
+#         blank=True)
 
-    def __str__(self):
-        return "Покупатель {}{}".format(
-            self.user.first_name, self.user.last_name)
+#     def __str__(self):
+#         return "Покупатель {}{}".format(
+#             self.user.first_name, self.user.last_name)
 
 
 class Order(models.Model):
@@ -57,15 +62,16 @@ class Order(models.Model):
         (BYING_TYPE_SELF, "Самовывоз"),
     )
 
-    customer = models.ForeignKey(
-        Customer,
+    user = models.ForeignKey(
+        User,
+        blank=True,
         verbose_name="Покупатель",
         related_name="related_orders",
         on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(max_length=255, verbose_name="Фамилия")
     email = models.EmailField(max_length=100, verbose_name="Email", null=True,blank=True)
-    phone = PhoneNumberField(verbose_name="Номер телефона")
+    phone = models.CharField(max_length=15, verbose_name="Номер телефона")
     in_cart = models.TextField(
         max_length=2555, 
         verbose_name="Корзина",

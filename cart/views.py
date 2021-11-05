@@ -1,13 +1,14 @@
 from django.contrib import messages
 from django.db import transaction
 from django.http import HttpResponseRedirect
+from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 from posts.models import Post
 
 from .cart import Cart
 from .forms import CartAddProductForm, OrderForm
-from .models import Customer
+User = get_user_model()
 
 
 
@@ -54,7 +55,7 @@ def get_checkout(request):
 def make_order(request):
     cart = Cart(request)
     form = OrderForm(request.POST or None)
-    customer = Customer.objects.get(user=request.user)
+    customer = request.user
     if form.is_valid():
         new_order = form.save(commit=False)
         new_order.customer = customer
@@ -68,10 +69,13 @@ def make_order(request):
         new_order.in_cart = cart.get_cart()
         new_order.cart = cart.clear()
         new_order.save()
-        customer.orders.add(new_order)
+        customer.account.orders.add(new_order)
         messages.add_message(
             request,
             messages.INFO,
-            'Спасибо за заказ! Менеджер с Вами свяжется')
+            'Спасибо за заказ! Мы с тобой скоро свяжемся')
         return HttpResponseRedirect('/')
+    else:
+        messages.error(request, 'Проверьте правильность заполнения данных')
     return HttpResponseRedirect('/checkout/')
+
