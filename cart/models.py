@@ -65,6 +65,7 @@ class Order(models.Model):
     user = models.ForeignKey(
         User,
         blank=True,
+        null=True,
         verbose_name="Покупатель",
         related_name="related_orders",
         on_delete=models.CASCADE)
