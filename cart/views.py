@@ -69,7 +69,7 @@ def make_order(request):
         new_order.in_cart = cart.get_cart()
         new_order.cart = cart.clear()
         new_order.save()
-        customer.account.orders.add(new_order)
+        customer.orders.add(new_order)
         messages.add_message(
             request,
             messages.INFO,

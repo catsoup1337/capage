@@ -58,7 +58,6 @@ class Cart(object):
         
         for i in range(len(pos_pr)):
             b.append(f'{pos_qty[i]} x {pos_pr[i]} rub. -->{prt[i]}')
-        print(b)
 
 
         return [f'Общая сумма:{total}; Мест:{qty}; Наименования: {b}.']

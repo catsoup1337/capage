@@ -9,6 +9,7 @@
     <h4  class="card-title"> Registration</h4>
     </div>
     <form  method="post">
+        <li>ORDERS: {{ account_form }}</li>
         {% csrf_token %}
         {{ form|crispy }}
         

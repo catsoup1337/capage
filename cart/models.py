@@ -1,8 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
-
 from phonenumber_field.modelfields import PhoneNumberField
+
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 User = get_user_model()
@@ -41,6 +44,24 @@ User = get_user_model()
 #             self.user.first_name, self.user.last_name)
 
 
+class Account(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    orders = models.ManyToManyField(
+        "Order",
+        verbose_name="Заказы покупателя",
+        related_name="orders",
+        null=True,
+        blank=True)
+
+@receiver(post_save, sender=User)
+def create_user_account(sender, instance, created, **kwargs):
+    if created:
+        Account.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_account(sender, instance, **kwargs):
+    instance.account.save()
+
 class Order(models.Model):
     STATUS_NEW = 'new'
     STATUS_IN_PROGRESS = 'in_progress'
@@ -67,7 +88,7 @@ class Order(models.Model):
         blank=True,
         null=True,
         verbose_name="Покупатель",
-        related_name="related_orders",
+        related_name="orders",
         on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(max_length=255, verbose_name="Фамилия")
