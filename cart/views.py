@@ -78,4 +78,3 @@ def make_order(request):
     else:
         messages.error(request, 'Проверьте правильность заполнения данных')
     return HttpResponseRedirect('/checkout/')
-
