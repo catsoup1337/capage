@@ -1,10 +1,12 @@
 {% extends "base.html" %} 
 {% block title %} ORDER ничего нет {% endblock %}
 {% block content %}
-<img src="{{post.image.url}}" class="filters__img"/>
-<div class="page-body" >
-    <div>
-        <p>
+    <div class="detail_container">
+        <img src="{{post.image.url}}" class="filters__img"/>
+        <div style="padding-top: 8%;"
+        
+    >
+            <p>
             <h2><a style="color: hsl(0, 0%, 0%); text-decoration: none;">{{ post.position }}</a></h2>
             <h3>{{post.price}} RUB</h3>
             <pre>{{ post.text }}</pre>
@@ -17,7 +19,6 @@
                     <a style="color: hsl(0, 0%, 20%); text-decoration: none;"> ADD TO KORZINA</a>
             </button>
         </form>
-        <iframe src="https://open.spotify.com/embed/track/76AfvAd3jn7pOa2LJee2v2?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
     </div>
-</div>
 {% endblock %}

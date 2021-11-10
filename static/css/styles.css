@@ -639,3 +639,9 @@ figure {
         font-size: 100%;
     }
 }
+.detail_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
