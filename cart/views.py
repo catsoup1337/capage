@@ -73,8 +73,8 @@ def make_order(request):
         messages.add_message(
             request,
             messages.INFO,
-            'Спасибо за заказ! Мы с тобой скоро свяжемся')
+            'thank u for ordering! we`ll contact you soon!')
         return HttpResponseRedirect('/')
     else:
-        messages.error(request, 'Проверьте правильность заполнения данных')
+        messages.error(request, 'сheck that the data is filled in correctly')
     return HttpResponseRedirect('/checkout/')

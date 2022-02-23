@@ -1,18 +1,16 @@
 import os
 import dj_database_url
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'gq8t=4q6dndw=yuuum8cyz)-=tp!@qcty2l#d+@z!(lyzvm!wc'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 CART_SESSION_ID = 'cart'
-# Application definition
+
 
 INSTALLED_APPS = [
     'cart',
@@ -45,7 +43,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'capage.urls'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
@@ -65,21 +63,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'capage.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -97,9 +86,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -111,40 +97,26 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 # STATIC_URL = '/static/'
 
 
-# STATICFILES_DIRS = ['capage/static/capage',]
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
-# MEDIA_URL = '/static/media/posts/'
 LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = '/'
-SITE_ID=1 
+SITE_ID=1
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+STATIC_ROOT = '/home/www/code/project1/capage/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# dstatic > dstatic > settings.py
 
-AWS_ACCESS_KEY_ID = 'AKIAQ5WC2YFVTHPOCO5D'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'capage-static'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'static'
+STATIC_URL = '/static/static/'
+MEDIA_URL = '/static/media/posts/'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-] 
-STATIC_URL='https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-STATICFILES_FINDERS = (           'django.contrib.staticfiles.finders.FileSystemFinder',    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
-AWS_DEFAULT_ACL = None 
+#STATICFILES_DIRS = [
+#           os.path.join(BASE_DIR, "static"),
+#           ]

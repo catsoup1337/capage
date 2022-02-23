@@ -2,11 +2,11 @@
     <img src="{{post.image.url}}" class="preview"/>
     <!-- Text -->
             <p class="grid-item__title">{{ post.position }}</p>
-            <p class="grid-item__price">{{post.price}} RUB</p>
+           
     <!-- Button for ordering-->
-        <div class="grid-order">
+	<p> </p>
             <a  class="grid-order__link" href="{% url 'post_detail' post.pk %}" role="button">
-                <p class="grid-order__title">ORDER</p>
+		    <p class="grid-order__title">{{post.price}} RUB</p>
             </a>
-        </div>
+
 </div>
