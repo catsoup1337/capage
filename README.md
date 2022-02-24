@@ -22,22 +22,4 @@
 
 **Можно и нужно лучше!**
 
-## **Установка**
-*(для пользователей операционных систем семейства MacOs/Linux):*
-  Открыть терминал или консоль и перейти в нужную Вам директорию
-  Прописать команду git clone https://github.com/catsoup1337/capage.git
-
-  Прописать следующие команды:
-
-
-  python3 -m venv venv
-  source venv/bin/activate
-  Перейти в директорию capage
-
-  pip install -r requirements.txt
-  python manage.py makemigrations
-  python manage.py migrate
-  
-  Запустить сервер - python manage.py runserver
->>>>>>> 2d73bc9bf5c203b562512a133d1de4502091b61f
 
